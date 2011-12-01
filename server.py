@@ -12,8 +12,16 @@ app.config['SIGNUP_FILE'] = os.path.join(app_dir, 'signup.yaml')
 @app.route("/")
 def index():
     topics = [
-        "Foo",
-        "Bar",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MVC",
+        "Securitate",
+        "REST",
+        "Caching",
+        "Scaling",
+        "Deployment",
+        "Analytics",
     ]
     return flask.render_template('index.html', topics=topics)
 
