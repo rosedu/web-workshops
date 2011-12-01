@@ -6,7 +6,11 @@ app = flask.Flask(__name__)
 
 @app.route("/")
 def index():
-    return flask.render_template('index.html')
+    topics = [
+        "Foo",
+        "Bar",
+    ]
+    return flask.render_template('index.html', topics=topics)
 
 
 if __name__ == "__main__":

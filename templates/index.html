@@ -15,21 +15,21 @@
 <form action="/signup" method="post">
 
 <table>
+
   <thead>
     <th></th>
     <td>Știu</td>
     <td>Vreau să învăț</td>
   </thead>
+
+  {% for topic in topics %}
   <tr>
-    <th>Foo</th>
+    <th>{{ topic }}</th>
     <td><input type="checkbox"></td>
     <td><input type="checkbox"></td>
   </tr>
-  <tr>
-    <th>Bar</th>
-    <td><input type="checkbox"></td>
-    <td><input type="checkbox"></td>
-  </tr>
+  {% endfor %}
+
 </table>
 
 </form>
