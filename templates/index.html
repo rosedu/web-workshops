@@ -27,26 +27,28 @@
     {% for topic in topics %}
     <tr>
       <th>{{ topic }}</th>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><input type="checkbox" name="form-topic-stiu"
+                 value="{{ topic|lower }}"></td>
+      <td><input type="checkbox" name="form-topic-vreau"
+                 value="{{ topic|lower }}"></td>
     </tr>
     {% endfor %}
 
   </table>
 
   <label for="form-sunt">Sunt:</label>
-  <select id="form-sunt">
-    <option>elev</option>
-    <option>student</option>
-    <option>absolvent, etc</option>
+  <select id="form-sunt" name="sunt">
+    <option value="elev">elev</option>
+    <option value="student">student</option>
+    <option value="etc">absolvent, etc</option>
   </select>
 
   <div id="form-student-extra" style="display: none;">
     <label for="form-facultate">Facultate</label>
-    <input id="form-facultate">
+    <input id="form-facultate" name="facultate">
 
     <label for="form-an">An</label>
-    <input id="form-an">
+    <input id="form-an" name="an">
   </div>
 
   <label for="form-email">Adresa de email:</label>

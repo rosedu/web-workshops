@@ -13,5 +13,11 @@ def index():
     return flask.render_template('index.html', topics=topics)
 
 
+@app.route("/signup", methods=['POST'])
+def signup():
+    print flask.request.form
+    return "thank you"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
