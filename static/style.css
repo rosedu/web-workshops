@@ -1,3 +1,7 @@
+ul.form-layout {
+  list-style: none;
+}
+
 .required-field {
   color: red;
   vertical-align: super;
