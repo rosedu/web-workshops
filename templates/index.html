@@ -7,6 +7,8 @@
 
 <body>
 
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
 <p>
   Workshop-uri ținute de oameni tineri și deschiși care lucrează în
   domeniul web.
@@ -39,7 +41,7 @@
     <option>absolvent, etc</option>
   </select>
 
-  <div id="form-student-extra">
+  <div id="form-student-extra" style="display: none;">
     <label for="form-facultate">Facultate</label>
     <input id="form-facultate">
 
@@ -53,6 +55,19 @@
   <input type="submit" value="Vreau!">
 
 </form>
+
+<script>
+$('#form-sunt').change(function(evt) {
+  var value = $(this).val();
+  var extra = $('#form-student-extra');
+  if(value == 'student') {
+    extra.show();
+  }
+  else {
+    extra.hide();
+  }
+});
+</script>
 
 </body>
 </html>
