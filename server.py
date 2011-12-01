@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import flask
 
 
@@ -19,9 +20,15 @@ def index():
 
 @app.route("/signup", methods=['POST'])
 def signup():
+    form = flask.request.form
+
+    if re.match(r'^\S+@\S+\.\S+$', form['email']) is None:
+        return "Missing email address :("
+
     with open(app.config['SIGNUP_FILE'], 'ab') as f:
-        json.dump(flask.request.form.to_dict(), f)
+        json.dump(form.to_dict(), f)
         f.write('\n---\n')
+
     return "thank you"
 
 
