@@ -1,0 +1,9 @@
+.required-field {
+  color: red;
+  vertical-align: super;
+  font-size: 70%;
+}
+
+.form-error {
+  border: 2px solid red;
+}
