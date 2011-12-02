@@ -38,10 +38,5 @@ def signup():
 
     return "Thanks for signing up! We'll keep you posted ;)"
 
-# @app.route('/functions.js')
-# def functions_js():
-#     with open('functions.js', 'r') as js:
-#         return js.read()
-
 if __name__ == "__main__":
     app.run(debug=True)
