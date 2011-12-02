@@ -11,8 +11,7 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
 <p>
-  Workshop-uri ținute de oameni tineri și deschiși care lucrează în
-  domeniul web.
+  {{ greeting|safe }}
 </p>
 
 <form action="/signup" method="post" name="signup">
@@ -70,33 +69,29 @@
   </p>
 
   <li>
-    <input type="submit" value="Vreau!">
+    <input type="submit" value="{{ submit }}">
   </li>
 </form>
 
 <p>
-{{ followup|safe }}
+  {{ followup|safe }}
 </p>
 
 <script src="static/functions.js"></script>
-
 <script>
 // Hack to make the default select display...
 $('#form-' + $('#form-sunt')[0].value + '-extra').show()
 
 // When selection changed, change shown fields
-$('#form-sunt').change(function(evt) {
-  expandSelected(evt, '#form-sunt')
+$('#form-sunt').change(function(event) {
+  expandSelected(event, '#form-sunt')
 });
 
-// Primitive email address validation
-$('form[name=signup]').submit(function(evt) {
-    var email_field = $('#form-email');
-    var match = email_field.val().match(/^\S+@\S+\.\S+$/);
-    if (match == null) {
-	evt.preventDefault();
-	email_field.addClass('form-error');
-    }
+// Primitive field validation
+$('form[name=signup]').submit(function(event) {
+  validateField(event, '#form-email', /^\S+@\S+\.\S+$/);
+  if ($('#form-phone') != [])
+    validateField(event, '#form-phone', /07\d{8}$/);
 });
 </script>
 

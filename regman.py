@@ -17,7 +17,9 @@ def index():
                                  cols=config['COLS'],
                                  profiles=config['PROFILES'],
                                  contact=config['CONTACT'],
-                                 followup=config['FOLLOWUP'])
+                                 followup=config['FOLLOWUP'],
+                                 greeting=config['GREETING'],
+                                 submit=config['SUBMIT'])
 
 @app.route("/signup", methods=['POST'])
 def signup():
