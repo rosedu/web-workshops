@@ -1,5 +1,5 @@
 # Regman's config module
 
-class Config(object):
-    TOPICS_FILE = 'topics.txt'
-    
+TOPICS_FILE = 'topics.txt'
+SIGNUP_FILE = 'signups.yaml'
+
