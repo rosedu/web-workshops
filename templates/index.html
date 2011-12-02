@@ -31,7 +31,7 @@
       <tr>
         <th>{{ line }}</th>
 	{% for col in cols %}
-        <td><input type="checkbox" name="form-{{ col }}"
+        <td><input type="checkbox" name="form-{{ col|lower }}"
                    value="{{ line|lower }}"></td>
 	{% endfor %}
       </tr>
