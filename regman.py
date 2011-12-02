@@ -8,14 +8,16 @@ import regconf
 
 app_dir = os.path.dirname(__file__)
 app = flask.Flask(__name__)
-app.config.from_object('regconf.StudentConfig')
+app.config.from_object('regconf.InstructorConfig')
 
 @app.route("/")
 def index():
     config = app.config
     return flask.render_template('index.html', lines=config['LINES'],
                                  cols=config['COLS'],
-                                 profiles=config['PROFILES'])
+                                 profiles=config['PROFILES'],
+                                 contact=config['CONTACT'],
+                                 followup=config['FOLLOWUP'])
 
 @app.route("/signup", methods=['POST'])
 def signup():
@@ -38,6 +40,6 @@ def signup():
 # def functions_js():
 #     with open('functions.js', 'r') as js:
 #         return js.read()
-    
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -23,7 +23,7 @@ class BaseConfig(object):
     PROFILES = {'Elev' : [u'Școală', u'Clasă'],
                 'Student' : ['Facultate', 'An'],
                 'Angajat' : ['Companie', u'Funcție']}
-    CONTACT = {'email' : u'Adresă de e-mail'}
+    CONTACT = {'email' : u'Adresă de e-mail:'}
 
     # Follow up message
     FOLLOWUP = u'Contactați-ne la <a href="mailto:webdev@rosedu.org">webdev.rosedu.org</a>'
@@ -45,7 +45,7 @@ class InstructorConfig(StudentConfig):
     COLS = copy.deepcopy(StudentConfig.COLS)
     COLS.append(u'Predau')
     CONTACT = copy.deepcopy(StudentConfig.CONTACT)
-    CONTACT.update({'phone' : u'Număr de telefon'})
+    CONTACT.update({'phone' : u'Număr de telefon:'})
 
 class DateTimeConfig(BaseConfig):
     GREETING = 'Analytics 2'

@@ -19,8 +19,8 @@
 
 <ul class="form-layout">
   <li>
+    <p>
     <table>
-
       <thead>
 	<td></td>
         {% for col in cols %}
@@ -37,8 +37,8 @@
 	{% endfor %}
       </tr>
       {% endfor %}
-
     </table>
+    </p>
   </li>
 
   <li>
@@ -50,38 +50,46 @@
     </select>
   </li>
 
-  {% for (a, b) in profiles.items() %}
-  <li id="form-{{ a|lower }}-extra" style="display: none;">
+  {% for (k, v) in profiles.items() %}
+  <li id="form-{{ k|lower }}-extra" style="display: none;">
     {% for i in range(2) %}
-    <label for="form-{{ b[i]|lower }}">{{ b[i] }}</label>
-    <input id="form-{{ b[i]|lower }}" name="{{ b[i]|lower }}">
+    <label for="form-{{ v[i]|lower }}">{{ v[i] }}</label>
+    <input id="form-{{ v[i]|lower }}" name="{{ v[i]|lower }}">
     {% endfor %}
   </li>
   {% endfor %}
 
+  <p>
+  {% for (k, v) in contact.items() %}
   <li>
-    <label for="form-email">Adresa de email:</label>
+    <label for="form-{{ k|lower }}">{{ v }}</label>
     <span class="required-field">*</span>
-    <input id="form-email" name="email">
+    <input id="form-{{ k|lower }}" name="{{ k|lower }}">
   </li>
+  {% endfor %}
+  </p>
 
   <li>
     <input type="submit" value="Vreau!">
   </li>
-
-  <li>
-    Contactați-ne la <a
-    href="mailto:webdev@rosedu.org">webdev@rosedu.org</a>.
-  </li>
 </form>
+
+<p>
+{{ followup|safe }}
+</p>
 
 <script src="static/functions.js"></script>
 
 <script>
+// Hack to make the default select display...
+$('#form-' + $('#form-sunt')[0].value + '-extra').show()
+
+// When selection changed, change shown fields
 $('#form-sunt').change(function(evt) {
   expandSelected(evt, '#form-sunt')
 });
 
+// Primitive email address validation
 $('form[name=signup]').submit(function(evt) {
     var email_field = $('#form-email');
     var match = email_field.val().match(/^\S+@\S+\.\S+$/);
