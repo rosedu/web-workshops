@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import copy
 # Regman's config module
 
 def get_lines(file_path):
@@ -19,9 +20,9 @@ class BaseConfig(object):
     COLS = None
 
     # Profile for an attendant as well as contact info
-    PROFILES = {'school' : [u'Școală', u'Clasă'],
-                'college' : ['Facultate', 'An'],
-                'employed' : ['Companie', u'Funcție']}
+    PROFILES = {'Elev' : [u'Școală', u'Clasă'],
+                'Student' : ['Facultate', 'An'],
+                'Angajat' : ['Companie', u'Funcție']}
     CONTACT = {'email' : u'Adresă de e-mail'}
 
     # Follow up message
@@ -41,8 +42,10 @@ class StudentConfig(BaseConfig):
     COLS = [u'Știu', u'Învăț']
 
 class InstructorConfig(StudentConfig):
-    StudentConfig.COLS.append(u'Predau')
-    StudentConfig.CONTACT.update({'phone' : u'Număr de telefon'})
+    COLS = copy.deepcopy(StudentConfig.COLS)
+    COLS.append(u'Predau')
+    CONTACT = copy.deepcopy(StudentConfig.CONTACT)
+    CONTACT.update({'phone' : u'Număr de telefon'})
 
 class DateTimeConfig(BaseConfig):
     GREETING = 'Analytics 2'

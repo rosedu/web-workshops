@@ -44,19 +44,20 @@
   <li>
     <label for="form-sunt">Sunt:</label>
     <select id="form-sunt" name="sunt">
-      <option value="elev">elev</option>
-      <option value="student">student</option>
-      <option value="etc">absolvent, etc</option>
+      {% for profile in profiles.keys() %}
+      <option value="{{ profile|lower }}">{{ profile }}</option>
+      {% endfor %}
     </select>
   </li>
 
-  <li id="form-student-extra" style="display: none;">
-    <label for="form-facultate">Facultate</label>
-    <input id="form-facultate" name="facultate">
-
-    <label for="form-an">An</label>
-    <input id="form-an" name="an">
+  {% for (a, b) in profiles.items() %}
+  <li id="form-{{ a|lower }}-extra" style="display: none;">
+    {% for i in range(2) %}
+    <label for="form-{{ b[i]|lower }}">{{ b[i] }}</label>
+    <input id="form-{{ b[i]|lower }}" name="{{ b[i]|lower }}">
+    {% endfor %}
   </li>
+  {% endfor %}
 
   <li>
     <label for="form-email">Adresa de email:</label>
@@ -74,17 +75,13 @@
   </li>
 </form>
 
+<script src="static/functions.js"></script>
+
 <script>
 $('#form-sunt').change(function(evt) {
-  var value = $(this).val();
-  var extra = $('#form-student-extra');
-  if(value == 'student') {
-    extra.show();
-  }
-  else {
-    extra.hide();
-  }
+  expandSelected(evt, '#form-sunt')
 });
+
 $('form[name=signup]').submit(function(evt) {
     var email_field = $('#form-email');
     var match = email_field.val().match(/^\S+@\S+\.\S+$/);
