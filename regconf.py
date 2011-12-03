@@ -22,8 +22,8 @@ class BaseConfig(object):
     CONTACT = {'email' : u'Adresă de e-mail:'}
 
     # Follow up message
-    FOLLOWUP = u'Contactează-ne la <a href="mailto:webdev@rosedu.org">webdev.'
-    'rosedu.org</a> :)'
+    FOLLOWUP = (u'Contactează-ne la <a href="mailto:webdev@rosedu.org">webdev' +
+                u'.rosedu.org</a> :)')
 
     SUBMIT = 'Vreau!'
 
