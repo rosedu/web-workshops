@@ -23,16 +23,16 @@
       <thead>
 	<td></td>
         {% for col in cols %}
-	<th>{{ col }}</th>
+	<th>{{ col[1] }}</th>
         {% endfor %}
       </thead>
 
-      {% for line in lines %}
+      {% for line  in lines %}
       <tr>
-        <th>{{ line }}</th>
+        <th>{{ line[1] }}</th>
 	{% for col in cols %}
-        <td><input type="checkbox" name="form-{{ col|lower }}"
-                   value="{{ line|lower }}"></td>
+        <td><input type="checkbox" name="form-{{ col[0] }}"
+                   value="{{ line[0] }}"></td>
 	{% endfor %}
       </tr>
       {% endfor %}

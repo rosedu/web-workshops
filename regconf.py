@@ -22,35 +22,39 @@ class BaseConfig(object):
     CONTACT = {'email' : u'Adresă de e-mail:'}
 
     # Follow up message
-    FOLLOWUP = u'Contactează-ne la <a href="mailto:webdev@rosedu.org">webdev.rosedu.org</a> :)'
+    FOLLOWUP = u'Contactează-ne la <a href="mailto:webdev@rosedu.org">webdev.'
+    'rosedu.org</a> :)'
 
     SUBMIT = 'Vreau!'
 
 class StudentConfig(BaseConfig):
     SIGNUP_FILE = 'signup_students.yaml'
-    LINES = ['HTML',
-             'CSS',
-             'JavaScript',
-             'MVC',
-             'Securitate',
-             'REST',
-             'Caching',
-             u'Scaling',
-             'Deployment',
-             'Analytics']
-    COLS = [u'Știu', u'Învăț']
+    LINES = [('html' , 'HTML'),
+             ('css' , 'CSS'),
+             ('javascript' , 'JavaScript'),
+             ('mvc' , 'MVC'),
+             ('securitate' , 'Securitate'),
+             ('rest' , 'REST'),
+             ('caching' , 'Caching'),
+             ('scaling' , 'Scaling'),
+             ('deployment', 'Deployment'),
+             ('analytics' , 'Analytics')]
+    COLS = [('stiu' , u'Știu'),
+            ('invat' , u'Învăț')]
 
 class InstructorConfig(StudentConfig):
     SIGNUP_FILE = 'signup_instructors.yaml'
-    COLS = copy.deepcopy(StudentConfig.COLS)
-    COLS.append(u'Predau')
+    COLS = [('stiu' , u'Știu'),
+            ('predau' , u'Predau')]
     CONTACT = copy.deepcopy(StudentConfig.CONTACT)
     CONTACT.update({'phone' : u'Număr de telefon:'})
 
 class DateTimeConfig(BaseConfig):
     SIGNUP_FILE = 'signup_date.yaml'
     GREETING = 'Analytics 2'
-    LINES = [u'5 decembrie (Luni)',
-             u'6 decembrie (Marți)',
-             u'10 decembrie (Sâmbătă)']
-    COLS = ['16', '18', '20']
+    LINES = [('data-12-5' , u'5 decembrie (Luni)'),
+             ('data-12-6' , u'6 decembrie (Marți)'),
+             ('data-12-10' , u'10 decembrie (Sâmbătă)')]
+    COLS = [('ora-16' , '16'),
+            ('ora-18' , '18'),
+            ('ora-20' , '20')]
