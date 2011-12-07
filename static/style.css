@@ -11,3 +11,7 @@ ul.form-layout {
 .form-error {
   border: 2px solid red;
 }
+
+table#form-topics {
+  text-align: center;
+}
