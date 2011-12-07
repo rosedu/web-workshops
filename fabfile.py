@@ -1,11 +1,19 @@
+from StringIO import StringIO
 from fabric.api import env
-from fabric.api import local, run, cd
+from fabric.api import local, run, cd, put
 from fabric.contrib.files import exists
 
 
 if env['host_string'] is None:
     env['host_string'] = 'webdev@rosedu.org'
     REMOTE_REPO = '/home/webdev/landing'
+
+
+APP_WSGI_TMPL = """\
+activate_this = '%(sandbox)s/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+from server import app as application
+"""
 
 
 def deploy():
@@ -24,3 +32,5 @@ def deploy():
 
     with cd(REMOTE_REPO):
         run("sandbox/bin/pip install -r requirements.txt")
+
+    put(StringIO(APP_WSGI_TMPL % {'sandbox': sandbox}), sandbox + '/app.wsgi')
