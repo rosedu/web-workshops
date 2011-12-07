@@ -12,6 +12,7 @@ if env['host_string'] is None:
 APP_WSGI_TMPL = """\
 activate_this = '%(sandbox)s/bin/activate_this.py'
 execfile(activate_this, dict(__file__=activate_this))
+import sys; sys.path.append('%(repo)s')
 from server import app as application
 """
 
@@ -33,4 +34,5 @@ def deploy():
     with cd(REMOTE_REPO):
         run("sandbox/bin/pip install -r requirements.txt")
 
-    put(StringIO(APP_WSGI_TMPL % {'sandbox': sandbox}), sandbox + '/app.wsgi')
+    app_wsgi = APP_WSGI_TMPL % {'sandbox': sandbox, 'repo': REMOTE_REPO}
+    put(StringIO(app_wsgi), sandbox + '/app.wsgi')
