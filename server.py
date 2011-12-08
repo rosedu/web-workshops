@@ -42,7 +42,7 @@ def signup():
         json.dump(data, f)
         f.write('\n---\n')
 
-    return "thank you"
+    return flask.render_template('confirmation.html')
 
 
 if __name__ == "__main__":
