@@ -36,6 +36,8 @@ def signup():
 
     with open(app.config['SIGNUP_FILE'], 'ab') as f:
         data = form.to_dict()
+        data['topic-stiu'] = form.getlist('topic-stiu')
+        data['topic-vreau'] = form.getlist('topic-vreau')
         data['time'] = datetime.utcnow().isoformat()
         json.dump(data, f)
         f.write('\n---\n')
