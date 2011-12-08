@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title></title>
+  <style>li.sunt-extra { display: none; }</style>
   <link rel="stylesheet" href="static/style.css">
 </head>
 
@@ -53,12 +54,28 @@
     </select>
   </li>
 
-  <li id="form-student-extra">
-    <label for="form-facultate">Facultate</label>
-    <input id="form-facultate" name="facultate">
+  <li id="form-sunt-elev" class="sunt-extra">
+    <label for="form-elev-scoala">Școală</label>
+    <input id="form-elev-scoala" name="elev-scoala">
 
-    <label for="form-an">An</label>
-    <input id="form-an" name="an">
+    <label for="form-elev-clasa">Clasă</label>
+    <input id="form-elev-clasa" name="elev-clasa">
+  </li>
+
+  <li id="form-sunt-student" class="sunt-extra">
+    <label for="form-student-facultate">Facultate</label>
+    <input id="form-student-facultate" name="student-facultate">
+
+    <label for="form-student-an">An</label>
+    <input id="form-student-an" name="student-an">
+  </li>
+
+  <li id="form-sunt-etc" class="sunt-extra">
+    <label for="form-etc-companie">Companie</label>
+    <input id="form-etc-companie" name="etc-companie">
+
+    <label for="form-etc-functie">Funcție</label>
+    <input id="form-etc-functie" name="etc-functie">
   </li>
 
   <li>
@@ -78,16 +95,11 @@
 </form>
 
 <script>
-$('#form-sunt').change(function(evt) {
-  var value = $(this).val();
-  var extra = $('#form-student-extra');
-  if(value == 'student') {
-    extra.show();
-  }
-  else {
-    extra.hide();
-  }
-});
+(function() {
+
+update_extra();
+$('#form-sunt').change(update_extra);
+
 $('form[name=signup]').submit(function(evt) {
   var email_field = $('#form-email');
   var match = email_field.val().match(/^\S+@\S+\.\S+$/);
@@ -96,6 +108,14 @@ $('form[name=signup]').submit(function(evt) {
     email_field.addClass('form-error');
   }
 });
+
+function update_extra() {
+  var value = $('#form-sunt').val();
+  $('li.sunt-extra').hide();
+  $('li#form-sunt-' + value + '.sunt-extra').show();
+}
+
+})();
 </script>
 
 </body>
