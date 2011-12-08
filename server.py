@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 import json
 import re
 import flask
@@ -34,7 +35,9 @@ def signup():
         return "Missing email address :("
 
     with open(app.config['SIGNUP_FILE'], 'ab') as f:
-        json.dump(form.to_dict(), f)
+        data = form.to_dict()
+        data['time'] = datetime.utcnow().isoformat()
+        json.dump(data, f)
         f.write('\n---\n')
 
     return "thank you"
