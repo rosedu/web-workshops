@@ -30,6 +30,19 @@ form.signup table#form-topics th {
 form.signup table#form-topics td {
   text-align: center;
   padding: 0 10px;
+  position: relative;
+  width: 130px;
+}
+
+form.signup table#form-topics td label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+form.signup table#form-topics td label input {
+  font-size: 30px;
 }
 
 .required-field {
