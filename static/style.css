@@ -5,8 +5,31 @@ body {
   font-family: Open Sans, Helvetica, Arial, sans-serif;
 }
 
+form.signup {
+  display: inline-block;
+  margin: 10px 30px;
+  padding: 0 20px;
+  background: #f0f8ff;
+  border: 2px solid #e0f0f0;
+}
+
 ul.form-layout {
+  margin: 0;
+  padding: 0;
   list-style: none;
+}
+
+ul.form-layout > li {
+  margin: 10px;
+}
+
+form.signup table#form-topics th {
+  text-align: left;
+}
+
+form.signup table#form-topics td {
+  text-align: center;
+  padding: 0 10px;
 }
 
 .required-field {
@@ -17,8 +40,4 @@ ul.form-layout {
 
 .form-error {
   border: 2px solid red;
-}
-
-table#form-topics {
-  text-align: center;
 }
