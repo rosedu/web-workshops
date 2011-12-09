@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
 <h1>ROSEdu WebDev – workshop-uri despre web</h1>
 
@@ -80,104 +79,11 @@
   Acestea vor fi susținute de programatori care lucrează în domeniu,
   tineri și entuziaști. Înscrie-te cu adresa de e-mail și te vom anunța
   când se organizează primele workshop-uri.
+  Poți să ne contactezi la <a
+  href="mailto:webdev@rosedu.org">webdev@rosedu.org</a>.
 </p>
 
-<form action="/signup" method="post" name="signup">
 
-<ul class="form-layout">
-  <li>
-    <table id="form-topics">
-
-      <thead>
-        <th></th>
-        <td>Știu</td>
-        <td>Vreau să învăț</td>
-      </thead>
-
-      {% for topic in topics %}
-      <tr>
-        <th>{{ topic }}</th>
-        <td><input type="checkbox" name="topic-stiu"
-                   value="{{ topic|lower }}"></td>
-        <td><input type="checkbox" name="topic-vreau"
-                   value="{{ topic|lower }}"></td>
-      </tr>
-      {% endfor %}
-
-    </table>
-  </li>
-
-  <li>
-    <label for="form-sunt">Sunt:</label>
-    <select id="form-sunt" name="sunt">
-      <option value="elev">elev</option>
-      <option value="student" selected>student</option>
-      <option value="etc">absolvent, etc</option>
-    </select>
-  </li>
-
-  <li id="form-sunt-elev" class="sunt-extra">
-    <label for="form-elev-scoala">Școală</label>
-    <input id="form-elev-scoala" name="elev-scoala">
-
-    <label for="form-elev-clasa">Clasă</label>
-    <input id="form-elev-clasa" name="elev-clasa">
-  </li>
-
-  <li id="form-sunt-student" class="sunt-extra">
-    <label for="form-student-facultate">Facultate</label>
-    <input id="form-student-facultate" name="student-facultate">
-
-    <label for="form-student-an">An</label>
-    <input id="form-student-an" name="student-an">
-  </li>
-
-  <li id="form-sunt-etc" class="sunt-extra">
-    <label for="form-etc-companie">Companie</label>
-    <input id="form-etc-companie" name="etc-companie">
-
-    <label for="form-etc-functie">Funcție</label>
-    <input id="form-etc-functie" name="etc-functie">
-  </li>
-
-  <li>
-    <label for="form-email">Adresa de email:</label>
-    <span class="required-field">*</span>
-    <input id="form-email" name="email">
-  </li>
-
-  <li>
-    <input type="submit" value="Vreau!">
-  </li>
-
-  <li>
-    Contactați-ne la <a
-    href="mailto:webdev@rosedu.org">webdev@rosedu.org</a>.
-  </li>
-</form>
-
-<script>
-(function() {
-
-update_extra();
-$('#form-sunt').change(update_extra);
-
-$('form[name=signup]').submit(function(evt) {
-  var email_field = $('#form-email');
-  var match = email_field.val().match(/^\S+@\S+\.\S+$/);
-  if(match == null) {
-    evt.preventDefault();
-    email_field.addClass('form-error');
-  }
-});
-
-function update_extra() {
-  var value = $('#form-sunt').val();
-  $('li.sunt-extra').hide();
-  $('li#form-sunt-' + value + '.sunt-extra').show();
-}
-
-})();
-</script>
+{% include 'signup-form.html' %}
 
 {% endblock %}
