@@ -1,0 +1,9 @@
+<div style="position: fixed; top: 0; right: 0; background: #bef;">
+<a href="javascript:;" id="livejs" style="margin: 0 10px;">livejs</a>
+<script>
+$('a#livejs').click(function(evt) {
+  $.getScript('http://livejs.com/live.js#css');
+  $(this).remove();
+});
+</script>
+</div>
