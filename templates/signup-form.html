@@ -1,34 +1,11 @@
 <form action="/signup" method="post" name="signup" class="signup">
 
 <ul class="form-layout">
+
   <li>
-    <table id="form-topics">
-
-      <thead>
-        <th></th>
-        <td>Știu ceva</td>
-        <td>Vreau să învăț</td>
-      </thead>
-
-      {% for topic in topics %}
-      <tr>
-        <th>{{ topic }}</th>
-        <td>
-          <label>
-            <input type="checkbox" name="topic-stiu"
-                   value="{{ topic|lower }}">
-          </label>
-        </td>
-        <td>
-          <label>
-            <input type="checkbox" name="topic-vreau"
-                   value="{{ topic|lower }}">
-          </label>
-        </td>
-      </tr>
-      {% endfor %}
-
-    </table>
+    <label for="form-email">Adresa de email:</label>
+    <span class="required-field">*</span>
+    <input id="form-email" name="email">
   </li>
 
   <li>
@@ -65,9 +42,37 @@
   </li>
 
   <li>
-    <label for="form-email">Adresa de email:</label>
-    <span class="required-field">*</span>
-    <input id="form-email" name="email">
+    <input type="submit" value="Vreau!">
+  </li>
+
+  <li>
+    <table id="form-topics">
+
+      <thead>
+        <th></th>
+        <td>Știu ceva</td>
+        <td>Vreau să învăț</td>
+      </thead>
+
+      {% for topic in topics %}
+      <tr>
+        <th>{{ topic }}</th>
+        <td>
+          <label>
+            <input type="checkbox" name="topic-stiu"
+                   value="{{ topic|lower }}">
+          </label>
+        </td>
+        <td>
+          <label>
+            <input type="checkbox" name="topic-vreau"
+                   value="{{ topic|lower }}">
+          </label>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </table>
   </li>
 
   <li>
