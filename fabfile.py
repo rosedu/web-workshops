@@ -15,6 +15,7 @@ execfile(activate_this, dict(__file__=activate_this))
 import sys; sys.path.append('%(repo)s')
 from server import app as application
 application.config['SIGNUP_FILE'] = '%(var)s/signup.yaml'
+application.config['GOOGLE_ANALYTICS_CODE'] = 'UA-7579199-4'
 """
 
 
