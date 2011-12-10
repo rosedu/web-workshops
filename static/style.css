@@ -3,8 +3,22 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 100px;
   color: #404040;
+}
+
+div.footer {
+    padding: 20px 5px;
+    color: #444;
+    overflow: hidden;
+}
+
+div.footer div.copyright {
+    float: right;
+}
+
+div.footer a.rosedu-logo {
+    display: inline-block;
+    margin-top: 50px;
 }
 
 a {

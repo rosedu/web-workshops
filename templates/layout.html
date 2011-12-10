@@ -16,6 +16,15 @@
 {% block content %}
 {% endblock %}
 
+<div class="footer">
+  <div class="copyright">
+    &copy; 2011
+    <a href="http://www.rosedu.org/" class="rosedu-logo">
+      <img src="/static/rosedu.png" title="ROSEdu">
+    </a>
+  </div>
+</div>
+
 {% if config['GOOGLE_ANALYTICS_CODE'] %}
 <script>
 var _gaq=[['_setAccount', "{{ config['GOOGLE_ANALYTICS_CODE'] }}"],['_trackPageview']];
