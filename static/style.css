@@ -77,10 +77,8 @@ form.signup table#form-topics td label input {
   font-size: 30px;
 }
 
-.required-field {
-  color: red;
-  vertical-align: super;
-  font-size: 70%;
+form.signup input[type=submit] {
+  font-size: 30px;
 }
 
 .form-error {
