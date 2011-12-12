@@ -54,19 +54,19 @@
         <td>Vreau să învăț</td>
       </thead>
 
-      {% for topic in topics %}
+      {% for topic_id, topic_label in topics %}
       <tr>
-        <th>{{ topic }}</th>
+        <th>{{ topic_label }}</th>
         <td>
           <label>
             <input type="checkbox" name="topic-stiu"
-                   value="{{ topic|lower }}">
+                   value="{{ topic_id }}">
           </label>
         </td>
         <td>
           <label>
             <input type="checkbox" name="topic-vreau"
-                   value="{{ topic|lower }}">
+                   value="{{ topic_id }}">
           </label>
         </td>
       </tr>

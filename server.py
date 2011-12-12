@@ -1,3 +1,4 @@
+# encoding: utf-8
 import os
 from datetime import datetime
 import json
@@ -13,16 +14,12 @@ app.config['SIGNUP_FILE'] = os.path.join(app_dir, 'signup.yaml')
 @app.route("/")
 def index():
     topics = [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "MVC",
-        "Securitate",
-        "REST",
-        "Caching",
-        "Scaling",
-        "Deployment",
-        "Analytics",
+        ('design', u"Design"),
+        ('frontend', u"Front-end"),
+        ('mvc', u"Aplicații server MVC"),
+        ('evented', u"Aplicații server event-driven"),
+        ('nosql', u"Baze de date non-relaționale"),
+        ('deploy', u"Deployment, scalabilitate"),
     ]
     return flask.render_template('index.html', topics=topics)
 
