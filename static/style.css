@@ -22,17 +22,6 @@ div.footer a.rosedu-logo {
     margin-top: 50px;
 }
 
-div.quicklink {
-    text-align: center;
-}
-
-div.quicklink a {
-    display: inline-block;
-    background: #f0f8ff;
-    padding: 1px 4px;
-    border: 2px solid #e0f0f0;
-}
-
 a {
   color: #0069D6;
   text-decoration: none;
