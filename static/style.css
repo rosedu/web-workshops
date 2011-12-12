@@ -3,6 +3,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   max-width: 800px;
   margin: 0 auto;
+  padding: 5px;
   color: #404040;
 }
 
@@ -19,6 +20,17 @@ div.footer div.copyright {
 div.footer a.rosedu-logo {
     display: inline-block;
     margin-top: 50px;
+}
+
+div.quicklink {
+    text-align: center;
+}
+
+div.quicklink a {
+    display: inline-block;
+    background: #f0f8ff;
+    padding: 1px 4px;
+    border: 2px solid #e0f0f0;
 }
 
 a {
@@ -57,6 +69,8 @@ ul.form-layout > li {
 
 form.signup table#form-topics th {
   text-align: left;
+  line-height: 1;
+  padding: 3px 0;
 }
 
 form.signup table#form-topics td {
